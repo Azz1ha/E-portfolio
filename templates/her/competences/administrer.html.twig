@@ -1,0 +1,284 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administrer - Portfolio{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        background: linear-gradient(135deg, #ff69b4 0%, #ffb6d9 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar {
+        background-color: #ff1493 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+    
+    .nav-link {
+        color: white !important;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .nav-link:hover {
+        color: #ffe0f0 !important;
+        transform: translateX(5px);
+        text-shadow: 0 0 10px rgba(255, 224, 240, 0.8), 0 0 20px rgba(255, 224, 240, 0.6);
+    }
+
+    .dropdown-menu {
+        background-color: #ff1493 !important;
+        border: none;
+    }
+
+    .dropdown-item {
+        color: white !important;
+        transition: background-color 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: #ff69b4 !important;
+        color: white !important;
+    }
+
+    .competence-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    
+    h1 {
+        color: white;
+        font-size: 3em;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
+
+    .competence-content {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 600px;
+        backdrop-filter: blur(10px);
+    }
+
+    .competence-content p {
+        color: white;
+        font-size: 1.2em;
+        line-height: 1.8;
+    }
+
+    .back-button {
+        margin-top: 20px;
+    }
+
+    .back-button a {
+        background-color: white;
+        color: #ff1493;
+        padding: 10px 30px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-button a:hover {
+        background-color: #ffe0f0;
+    }
+
+    /* Mode sombre */
+    body.dark-mode {
+        background: linear-gradient(135deg, #4a1c3a 0%, #2d0f26 100%);
+    }
+
+    body.dark-mode .navbar {
+        background-color: #2d0f26 !important;
+    }
+
+    body.dark-mode .competence-container h1,
+    body.dark-mode .competence-content p {
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .navbar-brand,
+    body.dark-mode .nav-link {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .dropdown-menu {
+        background-color: #2d0f26 !important;
+    }
+
+    body.dark-mode .dropdown-item {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .dropdown-item:hover {
+        background-color: #4a1c3a !important;
+    }
+
+    body.dark-mode .competence-content {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-mode .back-button a {
+        background-color: #e0e0e0;
+        color: #2d0f26;
+    }
+
+    body.dark-mode .back-button a:hover {
+        background-color: #f0f0f0;
+    }
+
+    #theme-toggle {
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+        border-color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body.dark-mode #theme-toggle {
+        border-color: rgba(224, 224, 224, 0.3);
+    }
+
+    body.dark-mode #theme-toggle:hover {
+        border-color: #e0e0e0;
+        background-color: rgba(224, 224, 224, 0.1);
+    }
+
+    /* Footer styles */
+    footer {
+        margin-top: auto;
+        background-color: #ff1493 !important;
+        color: white !important;
+    }
+
+    footer a {
+        color: #ffe0f0 !important;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: white !important;
+        text-decoration: underline;
+    }
+
+    body.dark-mode footer {
+        background-color: #2d0f26 !important;
+    }
+
+    body.dark-mode footer a {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode footer a:hover {
+        color: white !important;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">E-portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ path('app_projet_1') }}">Projet 1</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_projet_2') }}">Projet 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Compétences</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ path('app_competence_administrer') }}">Administrer</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_competence_connecter') }}">Connecter</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_competence_programmer') }}">Programmer</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_inscription_cv') }}">Télécharger CV</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <button id="theme-toggle" class="btn btn-outline-light ms-3" title="Basculer le thème">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="competence-container">
+    <h1>Administrer</h1>
+    <div class="competence-content">
+        <p>
+            Cette compétence me permet de découvrir l’administration des systèmes informatiques. 
+            J’ai appris à installer et configurer des machines,
+            à comprendre la gestion de base des utilisateurs et à assurer le bon fonctionnement d’un système.
+        </p>
+    </div>
+    <div class="back-button">
+        <a href="/">← Retour à l'accueil</a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+
+    // Vérifier le thème sauvegardé
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+
+    // Basculer le thème
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            localStorage.setItem('theme', 'light');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+});
+</script>
+{% endblock %}
