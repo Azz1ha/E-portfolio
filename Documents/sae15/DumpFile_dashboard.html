@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard TCP</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: Arial; background:#f4f4f4; padding:20px; }
+h1 { text-align:center; }
+canvas { background:#fff; margin:30px auto; display:block; padding:10px; }
+button {
+    background:#4CAF50;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Dashboard – Analyse TCP</h1>
+<p><b>Fichier :</b> DumpFile.txt</p>
+
+<canvas id="protocolChart" width="800" height="400"></canvas>
+<canvas id="flagChart" width="800" height="400"></canvas>
+
+<div style="text-align:center">
+<button onclick="window.location.href='DumpFile_grouped_report.md'">
+Voir le rapport détaillé
+</button>
+</div>
+
+<script>
+fetch("DumpFile_grouped_result.csv")
+.then(r => r.text())
+.then(data => {
+    const lines = data.split("\n").slice(1);
+    let proto = {};
+    let flag = {};
+
+    lines.forEach(l => {
+        const c = l.split(";");
+        if (c.length < 6) return;
+        proto[c[3]] = (proto[c[3]] || 0) + 1;
+        flag[c[4]] = (flag[c[4]] || 0) + 1;
+    });
+
+    new Chart(document.getElementById("protocolChart"), {
+        type: "bar",
+        data: {
+            labels: Object.keys(proto),
+            datasets: [{
+                label: "Paquets par protocole",
+                data: Object.values(proto),
+                backgroundColor: "#4CAF50"
+            }]
+        }
+    });
+
+    new Chart(document.getElementById("flagChart"), {
+        type: "pie",
+        data: {
+            labels: Object.keys(flag),
+            datasets: [{
+                data: Object.values(flag),
+                backgroundColor: ["#2196F3","#FF9800","#F44336","#9C27B0"]
+            }]
+        }
+    });
+});
+</script>
+
+</body>
+</html>
