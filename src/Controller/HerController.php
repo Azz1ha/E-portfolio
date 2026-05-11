@@ -49,7 +49,7 @@ final class HerController extends AbstractController
     public function projet1(): Response
     {
         return $this->render('her/projets/projet1.html.twig', [
-            'projet' => 'Projet 1',
+            'projet' => 'Bassira',
         ]);
     }
 
@@ -57,7 +57,7 @@ final class HerController extends AbstractController
     public function projet2(): Response
     {
         return $this->render('her/projets/projet2.html.twig', [
-            'projet' => 'Projet 2',
+            'projet' => 'Solarsip',
         ]);
     }
 
@@ -122,6 +122,22 @@ final class HerController extends AbstractController
 
         return $this->render('her/inscription_cv.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/projets/sae1-02', name: 'app_sae1_02')]
+    public function sae102(): Response
+    {
+        return $this->render('her/projets/sae1-02.html.twig', [
+            'projet' => 'SAE1.02',
+        ]);
+    }
+
+    #[Route('/projets/sae1-03', name: 'app_sae1_03')]
+    public function sae103(): Response
+    {
+        return $this->render('her/projets/sae1-03.html.twig', [
+            'projet' => 'SAE1.03',
         ]);
     }
 

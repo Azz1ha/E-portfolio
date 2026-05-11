@@ -632,6 +632,56 @@
         backdrop-filter: blur(10px);
     }
 
+    .school-entry {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .school-main {
+        max-width: calc(100% - 180px);
+    }
+
+    .school-main h3 {
+        margin: 0 0 10px;
+        color: white;
+        font-size: 1.8em;
+        font-weight: 700;
+    }
+
+    .school-sub {
+        color: #ffe0f0;
+        font-size: 1.1em;
+    }
+
+    .school-date {
+        color: #ff69b4;
+        font-size: 1.2em;
+        font-weight: 700;
+        min-width: 160px;
+        text-align: right;
+        align-self: center;
+    }
+
+    @media (max-width: 768px) {
+        .school-entry {
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .school-date {
+            text-align: left;
+            min-width: auto;
+        }
+    }
+
     .highlight-item:hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
@@ -838,26 +888,36 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets Personnels</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ path('app_projet_1') }}">Projet 1</a></li>
-                        <li><a class="dropdown-item" href="{{ path('app_projet_2') }}">Projet 2</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_projet_1') }}">Bassira</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_projet_2') }}">Solarsip</a></li>
                     </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets techniques</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ path('app_sae1_02') }}">SAE1.02</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_sae1_03') }}">SAE1.03</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#parcours">Parcours scolaire</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#interets">Intérêts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_inscription_cv') }}">Télécharger CV</a>
+                    <a class="nav-link" href="{{ path('app_cv') }}">CV</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#portfolio">Portfolio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">À propos</a>
                 </li>
             </ul>
             <button id="theme-toggle" class="btn btn-outline-light ms-3" title="Basculer le thème">
@@ -867,14 +927,21 @@
     </div>
 </nav>
 
-<div class="hero-section">
+<section id="introduction" class="hero-section">
     <div class="hero-content">
-        <h1>Hello and welcome to<br>Hala's E-portfolio</h1>
+        <h1>Bienvenue dans mon E-portfolio</h1>
+        <p class="footer-text">
+            Je m'appelle Hala Azzi, étudiante en 1ère année de BUT Réseaux et Télécommunications à l’IUT de Roanne.
+            Je suis passionnée par les réseaux, le numérique et l'innovation sociale.
+        </p>
+        <p class="footer-text">
+            Ce site présente mon introduction, mon parcours scolaire, mes intérêts, mon portfolio et mes contacts.
+        </p>
     </div>
     <div class="hero-image-right">
         <img src="/images/Photo.jpeg" alt="Hala Azzi" class="profile-photo-rect">
     </div>
-</div>
+</section>
 
 <!-- Transition Section -->
 <div class="transition-section">
@@ -887,46 +954,27 @@
     </div>
 </div>
 
-<section id="about" class="about-section">
+<section id="parcours" class="about-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="about-title">À propos de Hala</h2>
+                <h2 class="about-title">Parcours scolaire</h2>
                 <div class="about-content">
-                    <p class="about-text">
-                        Passionnée par le réseau et le numérique, je suis étudiante déterminée 
-                        à maîtriser les technologies modernes.
-                    <p class="about-text">
-                        Ce portfolio présente mes projets, mes compétences et mon évolution professionnelle. 
-                        N'hésitez pas à explorer les différentes sections pour découvrir mon travail et 
-                        mes réalisations.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <h2 class="portfolio-title">Mon Portfolio</h2>
-                <div class="portfolio-content">
-                    <div class="portfolio-description">
-                        <p class="portfolio-text">
-                            Découvrez mon portfolio complet présentant l'ensemble de mes projets,
-                            réalisations et compétences techniques.
-                        </p>
+                    <div class="school-entry">
+                        <div class="school-main">
+                            <h3>BUT Réseaux et Télécommunications</h3>
+                            <div class="school-sub">IUT de Roanne</div>
+                        </div>
+                        <div class="school-date">Sep 2025 - 2028</div>
                     </div>
-                    <div class="portfolio-actions">
-                        <a href="https://docs.google.com/spreadsheets/d/1t1FWbzBWyBNC7uNNPWTxA66eQD4BhoG0Ss472ndMEQA/edit?usp=drive_link"
-                           target="_blank" class="portfolio-btn">
-                            <i class="fas fa-external-link-alt"></i>
-                            Voir mon Portfolio
-                        </a>
-                    </div>    
+                    <div class="school-entry">
+                        <div class="school-main">
+                            <h3>Baccalauréat Scientifique
+                            (Mention Très Bien)</h3>
+                            <div class="school-sub">Lycée Allal El Fassi</div>
+                        </div>
+                        <div class="school-date">2025</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -968,6 +1016,32 @@
                         <h3>Voyages</h3>
                         <p>Découverte de nouvelles cultures et horizons</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2 class="portfolio-title">Mon Portfolio</h2>
+                <div class="portfolio-content">
+                    <div class="portfolio-description">
+                        <p class="portfolio-text">
+                            Découvrez mon portfolio complet présentant l'ensemble de mes projets,
+                            réalisations et compétences techniques.
+                        </p>
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://docs.google.com/spreadsheets/d/1t1FWbzBWyBNC7uNNPWTxA66eQD4BhoG0Ss472ndMEQA/edit?usp=drive_link"
+                           target="_blank" class="portfolio-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Voir mon Portfolio
+                        </a>
+                    </div>    
                 </div>
             </div>
         </div>

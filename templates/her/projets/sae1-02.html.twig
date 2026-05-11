@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bassira - Portfolio{% endblock %}
+{% block title %}SAE1.02 - Portfolio{% endblock %}
 
 {% block body %}
 <style>
@@ -12,24 +12,24 @@
         margin: 0;
         padding: 0;
     }
-    
+
     .navbar {
         background-color: #ff1493 !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
-    
+
     .navbar-brand {
         font-weight: bold;
         font-size: 1.5em;
     }
-    
+
     .nav-link {
         color: white !important;
         font-weight: 500;
         transition: all 0.3s ease;
         position: relative;
     }
-    
+
     .nav-link:hover {
         color: #ffe0f0 !important;
         transform: translateX(5px);
@@ -60,7 +60,7 @@
         text-align: center;
         padding: 50px 20px;
     }
-    
+
     h1 {
         color: white;
         font-size: 3em;
@@ -73,53 +73,38 @@
         background: rgba(255, 255, 255, 0.1);
         padding: 30px;
         border-radius: 15px;
-        max-width: 900px;
+        max-width: 1000px;
         backdrop-filter: blur(10px);
-    }
-
-    .project-card {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 30px;
     }
 
-    .project-image {
-        width: 260px;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 20px;
-        border: 4px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .project-text {
+    .projet-text {
+        flex: 1;
         text-align: left;
-        color: white;
     }
 
-    .project-text h2 {
-        margin-top: 0;
-        color: white;
-        font-size: 2em;
+    .projet-image {
+        flex: 0 0 300px;
+        text-align: center;
     }
 
-    .project-text p {
+    .projet-image img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .projet-content p {
         color: white;
         font-size: 1.2em;
         line-height: 1.8;
-        margin-bottom: 0;
-    }
-
-    @media (min-width: 768px) {
-        .project-card {
-            flex-direction: row;
-            align-items: flex-start;
-        }
-
-        .project-text {
-            flex: 1;
-        }
+        margin-bottom: 20px;
+        text-align: left;
     }
 
     .back-button {
@@ -173,6 +158,11 @@
 
     body.dark-mode .projet-content {
         background: rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-mode .projet-image img {
+        border-color: rgba(224, 224, 224, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
 
     body.dark-mode .back-button a {
@@ -245,10 +235,17 @@
                     <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets Personnels</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ path('app_projet_1') }}">Bassira</a></li>
                         <li><a class="dropdown-item" href="{{ path('app_projet_2') }}">Solarsip</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets techniques</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ path('app_sae1_02') }}">SAE1.02</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_sae1_03') }}">SAE1.03</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -277,17 +274,36 @@
 </nav>
 
 <div class="projet-container">
-    <h1>Bassira</h1>
+    <h1>SAE1.02</h1>
     <div class="projet-content">
-        <div class="project-card">
-            <img src="{{ asset('images/Bassira2.jpeg') }}" alt="Photo du projet Bassira" class="project-image">
-            <div class="project-text">
-                <h2>Bassira</h2>
-                <p>
-                Participation à une compétition nationale d’innovation sociale. Coordination d’un projet appelé Bassira, création d'un bâton intelligent pour personnes aveugles, équipé de GPS, caméra et capteurs vibrants pour détecter les obstacles.
-                1er prix au niveau national au Maroc.
-                </p>
-            </div>
+        <div class="projet-text">
+            <h2>SAE1.02 - Installation d'un poste de travail</h2>
+            <p>
+            La SAE1.02 constitue une introduction pratique aux compétences fondamentales en informatique.
+            Elle permet d'acquérir les bases essentielles pour la configuration et la maintenance d'un environnement de travail informatique moderne.
+            Cette activité couvre l'ensemble des aspects techniques nécessaires à la mise en place d'un poste de travail opérationnel.
+            </p>
+
+            <p>
+            L'objectif principal est de maîtriser les procédures d'installation système, depuis la sélection du matériel jusqu'à la configuration logicielle.
+            Les étudiants apprennent à identifier les composants hardware compatibles et à effectuer les installations de manière sécurisée et efficace.
+            Cette compétence est transversale et s'applique à tous les domaines de l'informatique professionnelle.
+            </p>
+
+            <p>
+            Au-delà de l'aspect technique, cette SAE développe des compétences méthodologiques importantes.
+            Elle enseigne l'importance de la documentation, de la vérification systématique et de la résolution de problèmes.
+            Ces aptitudes sont essentielles pour tout professionnel de l'informatique et constituent une base solide pour les apprentissages futurs.
+            </p>
+
+            <p>
+            Enfin, cette activité permet de comprendre l'importance de la sécurité informatique dès les premiers stades de configuration.
+            Les bonnes pratiques apprises ici constituent les fondations d'une approche sécurisée du numérique.
+            Cette sensibilisation précoce est cruciale dans un environnement où les menaces informatiques sont omniprésentes.
+            </p>
+        </div>
+        <div class="projet-image">
+            <img src="{{ asset('images/computer-setup.svg') }}" alt="Installation poste de travail">
         </div>
     </div>
     <div class="back-button">
@@ -312,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Basculer le thème
     themeToggle.addEventListener('click', function() {
         body.classList.toggle('dark-mode');
-        
+
         if (body.classList.contains('dark-mode')) {
             localStorage.setItem('theme', 'dark');
             icon.classList.remove('fa-moon');
