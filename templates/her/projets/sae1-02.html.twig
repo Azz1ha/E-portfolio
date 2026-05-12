@@ -71,23 +71,20 @@
 
     .projet-content {
         background: rgba(255, 255, 255, 0.1);
-        padding: 30px;
+        padding: 40px;
         border-radius: 15px;
-        max-width: 1000px;
+        max-width: 1200px;
         backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        gap: 30px;
+        width: 100%;
     }
 
     .projet-text {
-        flex: 1;
+        width: 100%;
         text-align: left;
     }
 
     .projet-image {
-        flex: 0 0 300px;
-        text-align: center;
+        display: none;
     }
 
     .projet-image img {
@@ -101,10 +98,64 @@
 
     .projet-content p {
         color: white;
-        font-size: 1.2em;
+        font-size: 1em;
         line-height: 1.8;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         text-align: left;
+    }
+
+    .projet-content h2 {
+        color: white;
+        font-size: 2em;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 10px;
+    }
+
+    .projet-content h3 {
+        color: #ffe0f0;
+        font-size: 1.3em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .section-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border-left: 4px solid #ffb6d9;
+    }
+
+    .section-box ul {
+        color: white;
+        margin-left: 20px;
+        line-height: 2;
+    }
+
+    .section-box li {
+        margin-bottom: 10px;
+    }
+
+    .achievement-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .achievement-item {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 3px solid #ff69b4;
+    }
+
+    .achievement-item strong {
+        color: #ffe0f0;
     }
 
     .back-button {
@@ -137,6 +188,15 @@
     body.dark-mode .projet-container h1,
     body.dark-mode .projet-content p {
         color: #e0e0e0;
+    }
+
+    body.dark-mode .projet-content h2 {
+        color: #e0e0e0;
+        border-bottom-color: rgba(224, 224, 224, 0.3);
+    }
+
+    body.dark-mode .projet-content h3 {
+        color: #e0a8c8;
     }
 
     body.dark-mode .navbar-brand,
@@ -172,6 +232,25 @@
 
     body.dark-mode .back-button a:hover {
         background-color: #f0f0f0;
+    }
+
+    body.dark-mode .section-box {
+        background: rgba(255, 255, 255, 0.08);
+        border-left-color: #e0a8c8;
+    }
+
+    body.dark-mode .achievement-item {
+        background: rgba(255, 255, 255, 0.1);
+        border-left-color: #e0a8c8;
+    }
+
+    body.dark-mode .achievement-item strong,
+    body.dark-mode .section-box strong {
+        color: #e0a8c8;
+    }
+
+    body.dark-mode h3 {
+        color: #e0a8c8 !important;
     }
 
     #theme-toggle {
@@ -221,6 +300,60 @@
     body.dark-mode footer a:hover {
         color: white !important;
     }
+
+    /* Image Gallery Styles */
+    .gallery-section {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .gallery-item {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 182, 217, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        border-color: #ffb6d9;
+        box-shadow: 0 8px 20px rgba(255, 20, 147, 0.2);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .gallery-item-caption {
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        font-size: 0.95em;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-mode .gallery-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(224, 224, 224, 0.3);
+    }
+
+    body.dark-mode .gallery-item:hover {
+        border-color: #e0a8c8;
+        box-shadow: 0 8px 20px rgba(224, 168, 200, 0.2);
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -239,13 +372,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ path('app_projet_1') }}">Bassira</a></li>
                         <li><a class="dropdown-item" href="{{ path('app_projet_2') }}">Solarsip</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projets techniques</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ path('app_sae1_02') }}">SAE1.02</a></li>
-                        <li><a class="dropdown-item" href="{{ path('app_sae1_03') }}">SAE1.03</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -277,37 +403,12 @@
     <h1>SAE1.02</h1>
     <div class="projet-content">
         <div class="projet-text">
-            <h2>SAE1.02 - Installation d'un poste de travail</h2>
-            <p>
-            La SAE1.02 constitue une introduction pratique aux compétences fondamentales en informatique.
-            Elle permet d'acquérir les bases essentielles pour la configuration et la maintenance d'un environnement de travail informatique moderne.
-            Cette activité couvre l'ensemble des aspects techniques nécessaires à la mise en place d'un poste de travail opérationnel.
-            </p>
-
-            <p>
-            L'objectif principal est de maîtriser les procédures d'installation système, depuis la sélection du matériel jusqu'à la configuration logicielle.
-            Les étudiants apprennent à identifier les composants hardware compatibles et à effectuer les installations de manière sécurisée et efficace.
-            Cette compétence est transversale et s'applique à tous les domaines de l'informatique professionnelle.
-            </p>
-
-            <p>
-            Au-delà de l'aspect technique, cette SAE développe des compétences méthodologiques importantes.
-            Elle enseigne l'importance de la documentation, de la vérification systématique et de la résolution de problèmes.
-            Ces aptitudes sont essentielles pour tout professionnel de l'informatique et constituent une base solide pour les apprentissages futurs.
-            </p>
-
-            <p>
-            Enfin, cette activité permet de comprendre l'importance de la sécurité informatique dès les premiers stades de configuration.
-            Les bonnes pratiques apprises ici constituent les fondations d'une approche sécurisée du numérique.
-            Cette sensibilisation précoce est cruciale dans un environnement où les menaces informatiques sont omniprésentes.
-            </p>
+            <h2>SAE1.02 - Résumé</h2>
+            <p>Le contenu détaillé de cette SAE a été déplacé vers la page de compétence <strong>Programmer</strong>.</p>
+            <p>Toutes les sections, les travaux réalisés, les connaissances acquises et les visuels sont désormais accessibles dans la rubrique Programmer.</p>
+            <p>Cette page reste disponible comme point d'entrée, mais les détails opératoires sont maintenant regroupés dans la compétence dédiée.</p>
+            <p><a href="{{ path('app_competence_programmer') }}" style="color: white; text-decoration: underline;">Voir la compétence Programmer</a></p>
         </div>
-        <div class="projet-image">
-            <img src="{{ asset('images/computer-setup.svg') }}" alt="Installation poste de travail">
-        </div>
-    </div>
-    <div class="back-button">
-        <a href="/">← Retour à l'accueil</a>
     </div>
 </div>
 

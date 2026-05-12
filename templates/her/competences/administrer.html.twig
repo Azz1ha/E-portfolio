@@ -73,14 +73,113 @@
         background: rgba(255, 255, 255, 0.1);
         padding: 30px;
         border-radius: 15px;
-        max-width: 600px;
+        max-width: 1200px;
+        width: 100%;
         backdrop-filter: blur(10px);
     }
 
     .competence-content p {
         color: white;
-        font-size: 1.2em;
+        font-size: 1em;
         line-height: 1.8;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .competence-content h2 {
+        color: white;
+        font-size: 2em;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 10px;
+    }
+
+    .competence-content h3 {
+        color: #ffe0f0;
+        font-size: 1.3em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .section-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border-left: 4px solid #ffb6d9;
+    }
+
+    .section-box ul {
+        color: white;
+        margin-left: 20px;
+        line-height: 2;
+    }
+
+    .section-box li {
+        margin-bottom: 10px;
+    }
+
+    .achievement-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .achievement-item {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 3px solid #ff69b4;
+    }
+
+    .achievement-item strong {
+        color: #ffe0f0;
+    }
+
+    .gallery-section {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .gallery-item {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 182, 217, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        border-color: #ffb6d9;
+        box-shadow: 0 8px 20px rgba(255, 20, 147, 0.2);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        padding: 10px;
+    }
+
+    .gallery-item-caption {
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        font-size: 0.95em;
+        background: rgba(0, 0, 0, 0.2);
     }
 
     .back-button {
@@ -240,14 +339,179 @@
 <div class="competence-container">
     <h1>Administrer</h1>
     <div class="competence-content">
-        <p>
-            Cette compétence me permet de découvrir l’administration des systèmes informatiques. 
-            J’ai appris à installer et configurer des machines,
-            à comprendre la gestion de base des utilisateurs et à assurer le bon fonctionnement d’un système.
-        </p>
-    </div>
-    <div class="back-button">
-        <a href="/">← Retour à l'accueil</a>
+        <h2>SAE1.02 - Administrer les réseaux et l'Internet</h2>
+
+        <h3>Projet SAE</h3>
+        <div class="section-box">
+            <p>Cette SAE m'a permis de m'initier aux réseaux informatiques en étudiant l'infrastructure d'une entreprise en croissance et en concevant son évolution.</p>
+        </div>
+
+        <h3>Apprentissages Critiques Visés</h3>
+        <div class="section-box">
+            <ul>
+                <li><strong>AC0112 :</strong> Comprendre l'architecture des systèmes numériques et les principes du codage de l'information.</li>
+                <li><strong>AC0113 :</strong> Configurer les fonctions de base du réseau local.</li>
+                <li><strong>AC0114 :</strong> Maîtriser les rôles et les principes fondamentaux des systèmes d'exploitation afin d'interagir avec ceux-ci pour la configuration et administration des réseaux et services fournis.</li>
+                <li><strong>AC0115 :</strong> Identifier les dysfonctionnements du réseau local.</li>
+                <li><strong>AC0116 :</strong> Installer un poste client.</li>
+            </ul>
+        </div>
+
+        <h3>Compétence Visée</h3>
+        <div class="section-box">
+            <p><strong>Administrer les réseaux et l'Internet</strong></p>
+        </div>
+
+        <h3>Contexte</h3>
+        <div class="section-box">
+            <p>Dans le cadre de cette S.A.E., j'ai été chargé d'intervenir dans une entreprise en pleine croissance afin de faire évoluer son réseau local. Le réseau existant fonctionne, mais sa documentation n'est plus à jour, ce qui rend les modifications difficiles. L'objectif était de comprendre l'infrastructure déjà en place, de la documenter et de concevoir de nouveaux réseaux adaptés aux besoins de l'entreprise.</p>
+        </div>
+
+        <h3>Description des Travaux Réalisés</h3>
+        <div class="section-box">
+            <ul>
+                <li>Analyser l'infrastructure existante à travers l'étude de trames Wireshark</li>
+                <li>Récupérer des fichiers de configuration via un serveur TFTP</li>
+                <li>Concevoir et configurer sur Packet Tracer une extension réseau incluant trois nouveaux VLAN (Production, Commerciaux, RH) sur un nouveau commutateur nommé « halaswitch »</li>
+                <li>Mettre en œuvre une administration sécurisée par SSH</li>
+                <li>Implémenter des politiques de protection des accès avec le Port-Security</li>
+                <li>Configurer un dispositif de surveillance par Port-Mirroring</li>
+                <li>Valider l'ensemble par des tests de connectivité et une simulation réelle sur machine virtuelle</li>
+            </ul>
+        </div>
+
+        <h3>Les Connaissances Acquises</h3>
+        <div class="achievement-list">
+            <div class="achievement-item">
+                <strong>Ligne de commande</strong>
+                <p>Maîtrise des commandes de base pour configurer du matériel Cisco.</p>
+            </div>
+            <div class="achievement-item">
+                <strong>Architecture réseau</strong>
+                <p>Compréhension des VLAN, des ports access et des ports trunk.</p>
+            </div>
+            <div class="achievement-item">
+                <strong>Protocoles de sécurité</strong>
+                <p>Différence entre Telnet (non sécurisé) et SSH (sécurisé).</p>
+            </div>
+            <div class="achievement-item">
+                <strong>Adressage IP</strong>
+                <p>Capacité à créer un plan d'adresses IP logique pour une entreprise.</p>
+            </div>
+        </div>
+
+        <h3>Le Savoir-Être</h3>
+        <div class="section-box">
+            <ul>
+                <li><strong>Rigueur :</strong> Apprentissage de la précision, car une seule erreur de chiffre peut bloquer tout le réseau.</li>
+                <li><strong>Autonomie :</strong> Capacité à chercher des solutions par soi-même face à un problème technique.</li>
+                <li><strong>Organisation :</strong> Méthode de travail étape par étape pour ne rien oublier.</li>
+                <li><strong>Esprit d'analyse :</strong> Savoir observer des données techniques pour comprendre d'où vient une panne.</li>
+            </ul>
+        </div>
+
+        <h3>Les Tâches Réalisées</h3>
+        <div class="section-box">
+            <ul>
+                <li><strong>Analyse de l'existant :</strong> Étude des messages réseau avec Wireshark et récupération des anciennes configurations via un serveur TFTP.</li>
+                <li><strong>Création de la maquette :</strong> Mise en place sur Packet Tracer de nouveaux réseaux (VLAN) pour les services Production, Commerciaux et RH.</li>
+                <li><strong>Configuration technique :</strong> Paramétrage du nouveau switch (« halaswitch ») et des liaisons entre les équipements (ports trunk).</li>
+                <li><strong>Mise en sécurité :</strong> Activation du protocole SSH pour commander le switch à distance de façon sécurisée (chiffrée).</li>
+                <li><strong>Protection des accès :</strong> Configuration du Port-Security pour bloquer les ordinateurs inconnus et du Port-Mirroring pour surveiller le trafic.</li>
+                <li><strong>Vérification :</strong> Tests de connexion (pings) entre tous les appareils et sauvegarde des réglages sur un serveur.</li>
+            </ul>
+        </div>
+
+        <h3>Résultats Obtenus</h3>
+        <div class="section-box">
+            <ul>
+                <li><strong>Réseau segmenté :</strong> Chaque service de l'entreprise a son propre espace, ce qui évite les encombrements et les fuites de données.</li>
+                <li><strong>Sécurité renforcée :</strong> Les prises du switch sont protégées contre les branchements non autorisés.</li>
+                <li><strong>Accès à distance fiable :</strong> L'administrateur peut gérer le réseau en toute sécurité sans se déplacer.</li>
+                <li><strong>Documentation à jour :</strong> Toutes les adresses IP et les configurations sont notées et sauvegardées.</li>
+            </ul>
+        </div>
+
+        <h3>Points Techniques Clés</h3>
+        <div class="section-box">
+            <ul>
+                <li>VLAN natif : VLAN 3</li>
+                <li>Adresse IP du serveur TFTP : 192.168.200.254</li>
+                <li>Adresse IP du Switch 2 sur son interface VLAN 3 : 192.168.20.254</li>
+            </ul>
+        </div>
+
+        <h3>Apports de la S.A.E. et Difficultés</h3>
+        <div class="section-box">
+            <p>La réalisation de cette S.A.E. m'a permis de mettre en pratique les notions théoriques vues en cours, comme la configuration des VLAN, des trunks, l'adressage IP, le port security et l'administration sécurisée via SSH. J'ai ainsi pu mieux comprendre le rôle de chaque équipement et le fonctionnement global d'un réseau d'entreprise.</p>
+            <p><strong>Difficultés rencontrées :</strong></p>
+            <ul>
+                <li>Configuration des trunks avec les VLAN natifs différents</li>
+                <li>Mise en place correcte du port security</li>
+                <li>Gestion des adresses IP pour éviter les conflits</li>
+            </ul>
+            <p>Ces défis m'ont permis de développer des compétences pratiques, de renforcer ma rigueur et mon autonomie dans la résolution de problèmes réseau. Cette SAE a apporté une valeur ajoutée significative à mon apprentissage, en me préparant à gérer de manière sécurisée et organisée un réseau réel.</p>
+        </div>
+
+        <h3>Conclusion</h3>
+        <div class="section-box">
+            <p>En conclusion, cette SAE m'a permis de consolider mes connaissances en réseau en passant de la théorie à la pratique. La configuration des VLAN, des trunks, de l'adressage IP, du port security et de l'administration sécurisée via SSH m'a donné une vision complète de la gestion d'un réseau d'entreprise.</p>
+            <p>Malgré quelques difficultés, ce projet m'a appris à analyser, configurer et sécuriser un réseau tout en travaillant de manière autonome et méthodique. Cette expérience constitue une étape importante dans le développement de mes compétences professionnelles en informatique et réseaux.</p>
+        </div>
+
+        <h3>Visuels et Résultats</h3>
+        <div class="gallery-section">
+            <div class="image-grid">
+                <div class="gallery-item">
+                    <img src="{{ asset('images/trame.png') }}" alt="Trame Wireshark">
+                    <div class="gallery-item-caption">Trame Wireshark</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ asset('images/analyse trame.png') }}" alt="Analyse des trames">
+                    <div class="gallery-item-caption">Analyse des trames</div>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-section">
+            <div class="image-grid">
+                <div class="gallery-item">
+                    <img src="{{ asset('images/maquette.png') }}" alt="Maquette Packet Tracer">
+                    <div class="gallery-item-caption">Maquette Packet Tracer</div>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-section">
+            <div class="image-grid">
+                <div class="gallery-item">
+                    <img src="{{ asset('images/ssh conf1.png') }}" alt="Configuration SSH partie 1">
+                    <div class="gallery-item-caption">Configuration SSH - 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ asset('images/ssh conf2.png') }}" alt="Configuration SSH partie 2">
+                    <div class="gallery-item-caption">Configuration SSH - 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ asset('images/test ssh.png') }}" alt="Test SSH">
+                    <div class="gallery-item-caption">Test SSH</div>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-section">
+            <div class="image-grid">
+                <div class="gallery-item">
+                    <img src="{{ asset('images/port secu conf.png') }}" alt="Configuration Port Security">
+                    <div class="gallery-item-caption">Config Port Security</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ asset('images/port miro conf.png') }}" alt="Configuration Port Mirroring">
+                    <div class="gallery-item-caption">Config Port Mirroring</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ asset('images/Port mirroring test.png') }}" alt="Test Port Mirroring">
+                    <div class="gallery-item-caption">Test Port Mirroring</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -73,14 +73,102 @@
         background: rgba(255, 255, 255, 0.1);
         padding: 30px;
         border-radius: 15px;
-        max-width: 600px;
+        max-width: 900px;
+        width: 100%;
         backdrop-filter: blur(10px);
+        text-align: left;
     }
 
     .competence-content p {
         color: white;
-        font-size: 1.2em;
+        font-size: 1.1em;
         line-height: 1.8;
+    }
+
+    .competence-content h2 {
+        color: white;
+        font-size: 2.4em;
+        margin-bottom: 20px;
+    }
+
+    .competence-content h3 {
+        color: #ffe0f0;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .section-box {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        border-left: 4px solid #ff69b4;
+    }
+
+    .section-box ul {
+        margin-left: 20px;
+        line-height: 1.8;
+        color: white;
+    }
+
+    .section-box li {
+        margin-bottom: 10px;
+    }
+
+    .achievement-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .achievement-item {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 15px;
+        border-radius: 12px;
+        border-left: 4px solid #ff69b4;
+        color: white;
+    }
+
+    .achievement-item strong {
+        color: #ffe0f0;
+    }
+
+    .gallery-section {
+        margin-top: 30px;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .gallery-item {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 182, 217, 0.3);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(255, 20, 147, 0.18);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        display: block;
+    }
+
+    .gallery-item-caption {
+        padding: 12px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.2);
     }
 
     .back-button {
@@ -240,11 +328,110 @@
 <div class="competence-container">
     <h1>Programmer</h1>
     <div class="competence-content">
-        <p>
-            Cette compétence me permet de comprendre les bases du langage Python, 
-            d’écrire des programmes simples et de découvrir la logique de la programmation.
-        </p>
+        <h2>Projet SAE1.02</h2>
+        <p><strong>Situation d’Apprentissage et d’Évaluation :</strong> S’initier aux réseaux informatique.</p>
+
+        <div class="section-box">
+            <h3>Apprentissages critiques visés</h3>
+            <ul>
+                <li>AC0311 : Utiliser un système informatique et ses outils.</li>
+                <li>AC0312 : Lire, exécuter, corriger et modifier un programme.</li>
+                <li>AC0313 : Traduire un algorithme, dans un langage et pour un environnement donné.</li>
+                <li>AC0314 : Connaître l’architecture et les technologies d’un site Web.</li>
+                <li>AC0315 : Choisir les mécanismes de gestion de données adaptés au développement de l’outil.</li>
+                <li>AC0316 : S’intégrer dans un environnement propice au développement et au travail collaboratif client.</li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h3>Compétence visée</h3>
+            <p>Créer des outils et des applications informatiques pour les R&T.</p>
+        </div>
+
+        <div class="section-box">
+            <h3>Contexte</h3>
+            <p>Dans le cadre de cette SAÉ, j'ai été missionnée pour résoudre une problématique de saturation réseau au sein d'une entreprise ayant un site de production en Inde. Face à l'échec des méthodes classiques (Wireshark, tests à distance), l'objectif était d'utiliser le traitement de données pour identifier des activités suspectes à partir de fichiers issus de commandes tcpdump.</p>
+            <p>En tant qu'interlocutrice pour des collaborateurs anglophones, j'ai dû concevoir des outils automatisés et documenter mon travail en anglais pour permettre une exploitation internationale des résultats.</p>
+        </div>
+
+        <div class="section-box">
+            <h3>Description des faits</h3>
+            <p>Le projet a consisté à transformer des données brutes illisibles en informations exploitables pour un administrateur réseau. J'ai d'abord suivi un apprentissage sur l'extraction de données en Python et la mise en forme sous Excel. Ensuite, j'ai développé une application avec interface graphique capable de traiter des fichiers de données (comme des fichiers ICS ou textuels) pour en extraire les informations clés (résumé, dates, lieux). Ces données ont ensuite été exportées et analysées graphiquement pour mettre en évidence les anomalies de trafic responsables de la saturation.</p>
+        </div>
+
+        <div class="section-box">
+            <h3>Les connaissances acquises</h3>
+            <ul>
+                <li>Programmation Python utile : j'ai appris à coder un outil qui ne fait pas que des calculs, mais qui trie et nettoie de vraies données informatiques.</li>
+                <li>Analyse de la cybersécurité : je sais maintenant reconnaître des attaques réseau précises, comme le "SYN Flood" (saturation) ou le "Port Scanning" (espionnage des entrées).</li>
+                <li>Création d'interfaces : j'ai appris à utiliser Tkinter pour créer une fenêtre avec des boutons, rendant le programme facile à utiliser pour n'importe qui.</li>
+                <li>Export de rapports : je sais générer automatiquement différents types de fichiers (HTML pour les graphiques, CSV pour Excel, et Markdown pour le texte).</li>
+                <li>Anglais technique : j'ai appris à rédiger un manuel d'utilisation complet en anglais pour que des collègues étrangers puissent utiliser mon travail.</li>
+                <li>Maîtrise d'Excel : je sais utiliser les filtres avancés pour isoler une seule adresse IP suspecte dans une liste de milliers de lignes.</li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h3>Le savoir-être</h3>
+            <ul>
+                <li>Esprit d'enquête : j'ai su faire preuve de curiosité et de ténacité pour trouver une panne là où les outils classiques ne donnaient rien.</li>
+                <li>Sens de l'organisation : j'ai réussi à structurer mon code et mes dossiers pour que le projet soit propre et hébergé sur GitHub.</li>
+                <li>Pédagogie : j'ai été capable de vulgariser des choses complexes dans ma notice pour que même une personne qui ne connaît pas la programmation puisse s'en servir.</li>
+                <li>Adaptabilité : j'ai su me mettre dans la peau d'un employé travaillant dans un contexte international avec des équipes basées en Inde.</li>
+                <li>Rigueur : j'ai dû être très précise dans l'analyse des "flags" et des protocoles réseau pour ne pas faire d'erreur de diagnostic.</li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h3>Les tâches réalisées</h3>
+            <ul>
+                <li>Apprentissage du tri de données : j'ai appris à utiliser Python et Excel pour fouiller dans de gros fichiers de texte et en extraire uniquement ce qui est important.</li>
+                <li>Création d'un logiciel d'analyse (Forensic Pro) : j'ai codé un programme avec une interface facile (des boutons) pour que l'utilisateur puisse choisir un fichier et voir les infos s'afficher.</li>
+                <li>Détection automatique de menaces : j'ai programmé des alertes pour que l'ordinateur repère tout seul les comportements bizarres, comme les tentatives d'intrusion ou les attaques qui font ramer le réseau.</li>
+                <li>Exportation de bilans : j'ai fait en sorte que mon code crée des rapports clairs sous plusieurs formes : une page web avec des graphiques, un tableau Excel et un résumé texte.</li>
+                <li>Rédaction d'un mode d'emploi en anglais : j'ai écrit tout un guide technique en anglais pour que mes collègues en Inde puissent utiliser mon logiciel sans aide.</li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h3>Les résultats obtenus</h3>
+            <ul>
+                <li>Coupables identifiés : grâce au logiciel et aux graphiques Excel, j'ai pu prouver qu'il y avait bien deux activités suspectes qui saturaient le réseau.</li>
+                <li>Données ordonnées : j'ai réussi à transformer des milliers de lignes de texte illisibles en un tableau Excel propre et facile à filtrer.</li>
+                <li>Outil prêt à l'emploi : mon programme fonctionne parfaitement et peut analyser n'importe quel nouveau fichier en quelques secondes.</li>
+                <li>Communication internationale réussie : les équipes indiennes ont désormais toutes les instructions nécessaires (sur GitHub et en anglais) pour surveiller leur réseau de façon autonome.</li>
+            </ul>
+        </div>
+
+        <div class="gallery-section">
+            <h3>Des visuels</h3>
+            <div class="image-grid">
+                <div class="gallery-item">
+                    <img src="{{ asset('images/mark.png') }}" alt="Fichier Markdown">
+                    <div class="gallery-item-caption">Fichier Markdown</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ asset('images/fichier csv.png') }}" alt="Fichier CSV">
+                    <div class="gallery-item-caption">Fichier CSV</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ asset('images/filtr excel.png') }}" alt="Filtrage Excel">
+                    <div class="gallery-item-caption">Filtrage Excel</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <h3>Apports, difficultés et valeur ajoutée</h3>
+            <p>Cette SAÉ m'a permis de lier la cybersécurité à la programmation en développant l'outil Forensic Pro, capable d'automatiser l'analyse de flux réseau et de détecter des menaces comme le SYN Flood ou le scan de ports. Malgré les difficultés liées à la lecture de fichiers volumineux et à la vulgarisation technique en anglais pour les équipes en Inde, j'ai réussi à transformer des données brutes en rapports visuels exploitables. La valeur ajoutée de mon travail réside dans la création d'une solution "clé en main", documentée et hébergée sur GitHub, qui permet à des non-experts de diagnostiquer rapidement des pannes complexes dans un contexte international.</p>
+        </div>
+
+        <div class="section-box">
+            <h3>Conclusion</h3>
+            <p>En conclusion, cette SAÉ a été une étape clé dans ma formation pour passer du rôle d'observatrice à celui de conceptrice d'outils réseaux. Le diagnostic complet de la salle de production, combinant le script Python et l'analyse Excel, a permis d'identifier précisément les activités suspectes et de rétablir la stabilité du réseau. Ce projet m'a prouvé l'importance de savoir automatiser les tâches de maintenance et m'a donné confiance dans ma capacité à gérer des projets techniques dans un environnement international et collaboratif.</p>
+        </div>
     </div>
+
     <div class="back-button">
         <a href="/">← Retour à l'accueil</a>
     </div>
